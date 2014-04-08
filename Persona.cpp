@@ -16,12 +16,21 @@ Persona(char* name,int age,int state);   // конструктор з параметрами
 Persona(const Persona&);                // конструктор копыювання
 
 ~Persona();
+<<<<<<< HEAD
 char * Getname() ;
 int Getage() ;
 int Getstate() const;
 
 void Setname(char*);
 void Setage(int);
+=======
+char * Get name() ;
+int Get age() ;
+int Getstate() const;
+
+void Set name(char*);
+void Set age(int);
+>>>>>>> a6451fd5000b143b8ad8a80cb45ba7f9253a1c82
 void Setstate(int);
 void Set(char*,int,int);
 void Show(); 
@@ -64,11 +73,19 @@ this->age=x.age;
 
 this->state=x.state;
 }
+<<<<<<< HEAD
 void Persona::set name(char*name)
 {
 if (name) delete[]name;
 int n=strlen(_name);
 name=new char[n+1];
+=======
+void Persona::Set name(char*_name)
+{
+if (name) delete[]name;
+int n=strlen(_name);
+this->name=new char[n+1];
+>>>>>>> a6451fd5000b143b8ad8a80cb45ba7f9253a1c82
 strncpy(name,_name,n);
 name[n]=0;
 }
