@@ -1,0 +1,214 @@
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+
+template <class T>
+class complex
+{
+private:
+    
+    T re, im,arg, modul ;
+
+public:
+    
+    complex<T>();
+    complex<T>(T Re, T Im);
+    complex<T>(T Re, T Im=T(0));
+    complex<T> operator~() ;  
+    complex<T> operator-() ;
+    complex<T> operator-(T& a);
+    complex<T> operator+(T& b);
+    complex<T> operator*( T& b);
+    complex<T> operator/( T& c);
+    complex<T> operator^( T& a, T& b);
+    
+
+    T getre() ;
+    T getim() ;
+    T getarg() ;
+    T getmodul() ;
+    
+    void show();
+    void Set(T & _re);
+    void Set(T & _im);
+    void Set(T  & _arg);
+    void Set(T & _modul);
+    void alg_to_trig();
+    void trig_to_alg();
+    
+    complex<T>& operator=(const complex<T>& b); 
+    friend std::ostream &operator<<< >(std::ostream &, const complex< T > &);  
+      
+};
+
+template< typename T >
+std::ostream &operator<<(std::ostream &output, const complex< T > &complex)
+{
+    return output << "(" << complex.m_real << "," << complex.m_image << ")";
+}
+template <class T>
+{
+complex<T>::complex()
+    re(0.);
+    im(0.);
+}
+complex<T>::complex(T Re, T Im)
+ {
+     re(Re);
+     im(Im);
+ }
+ 
+complex<T>::complex(T Re, T Im)
+ {
+     re(Re);
+     im(0);
+ }
+ 
+  complex<T> operator~() 
+{
+}
+
+template <class T>
+Complex<T> operator-() 
+{
+    return complex<T>(-re, -im);
+}
+
+template <class T>
+complex<T> operator-(complex<T>& a)
+{
+    complex x(re, im);
+    x.re=re - a.re;
+    x.im=re - a.im;
+    return complex<T> (x);
+    
+   
+}
+template <class T>
+void complex <T>:: show()
+{
+    if (im>0)
+        cout <<re<<"+"<<im<<"*i";
+    else
+        cout<<re<<im<<"*i";
+}
+
+template <class T>
+complex<T> operator+(complex<T>& b)
+{
+   complex x(re, im);
+
+    x.re = re + b.re;
+    x.im = im + b.im;
+
+    return complex<T> (x);
+    
+   
+}
+
+template <class T>
+complex<T> operator*(complex<T>& b) 
+{
+    return complex<T>(re*b.re-im*b.im,  
+                        re*b.im-im*b.re);
+}
+
+
+
+template <class T>
+complex<T> complex<T>::operator/(complex<T>& c) 
+{
+    complex temp;
+
+    double r = c.re * c.re + c.im * c.im;
+    temp.re = (re * c.re + im * c.im) / r;
+    temp.im = (im * c.re - re * c.im) / r;
+
+    return complex<T> (temp);
+}
+
+template <class T>
+complex<T> ::void trig_to_alg()
+ {    
+      re= modul*cos(arg);
+      im= modul*in(arg);
+ }
+template <class T> 
+complex<T>:: void alg_to_trig();
+ {  
+      modul=sqrt(re^2+im^2);
+      arg=3.14/2;
+      
+ }
+template <class T>
+complex<T> complex<T>::operator^(complex<T>&a, T& x) 
+{
+    complex z(0,0);
+    z.module=pow(a.modul,x);
+    z.arg=a.arg*x;
+    z.trig_to_alg();
+    return complex<T> z;    
+}
+ template< typename T >
+void complex< T >::setim(const T &_im)
+{
+    im = _im;
+}
+ 
+template< typename T >
+T complex< T >::getim() const
+{
+    return im;
+}
+  
+  template< typename T >
+void complex< T >::setre(const T &_re)
+{
+    re = _re;
+}
+  template< typename T >
+void complex< T >::setarg(const T &_arg)
+{
+    arg = _arg;
+}
+ 
+template< typename T >
+T complex< T >::getarg() const
+{
+    return arg;
+}
+
+ template< typename T >
+void complex< T >::setmodul(const T &_modul)
+{
+    modul = _modul;
+}
+ 
+template< typename T >
+T complex< T >::getmodul() const
+{
+    return modul;
+}
+template< typename T >
+T complex< T >::getre() const
+{
+    return re;
+} 
+template <class T>
+complex<T>& complex<T>::operator=(const complex<T>& b)
+{
+    if(this != &b)
+    {
+        re=b.re;
+        im=b.im;
+    }
+    return *this;
+}  
+void main(int argc, char *argv[])
+{
+complex<int> a(5,1), b(3,3);
+complex<double> c(1.144, -0.155)
+    system("PAUSE");
+    return EXIT_SUCCESS;
+}
