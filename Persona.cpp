@@ -6,14 +6,14 @@ using namespace std;
 class Persona
 { protected:
             
-   char* name;              // имя
-   int age;                  // возраст
-   int state;                 // пол
+   char* name;              // пїЅпїЅпїЅ
+   int age;                  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+   int state;                 // пїЅпїЅпїЅ
 
 public:     
-Persona();                               //конструктор без параметров
-Persona(char* name,int age,int state);   // конструктор з параметрами
-Persona(const Persona&);                // конструктор копыювання
+Persona();                               //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+Persona(char* name,int age,int state);   // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+Persona(const Persona&);                // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
 ~Persona();
 char * Getname() ;
@@ -81,40 +81,28 @@ strcpy(&,name,strlen(name));
 return &;
 }
 
-void Persona::setage(char*age)
+void Persona::setage(_age)
 {
-if (age) delete[]age;
-int n=strlen(_age);
-age=new char[n+1];
-strncpy(age,_age,n);
-age[n]=0;
+age=_age;
 }
 
-char*getage()
+getage()
 {
 // return age
-char*&=new char[strlen(age)+1];
-strcpy(&,age,strlen(age));
-&=[strlen(age)]=0;
-return &;
+
+return age;
 }
  
-void Persona::setstate(char*state)
+void Persona::setstate(_state)
 {
-if (state) delete[]sate;
-int n=strlen(_state);
-state=new char[n+1];
-strncpy(state,_state,n);
-state[n]=0;
+   state=_state;
 }
  
-char*getstate()
+getstate()
 {
 // return state
-char*&=new char[strlen(state)+1];
-strcpy(&,state,strlen(state));
-&=[strlen(state)]=0;
-return &;
+
+return state;
 }
 
 
